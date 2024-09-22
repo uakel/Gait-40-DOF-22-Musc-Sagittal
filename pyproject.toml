@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "gait-40-dof-22-musc-sagittal"
+version = "0.1.0"
+description = "OpenSim model in MuJoCo environement, addapted to only move in sagittal plane"
+authors = ["Leonard Franz <leonard.franz@student.uni-tuebingen.de>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+MyoSuite = "2.1.5"
+
+[tool.poetry.group.dev.dependencies]
+numpy = "^2.1.1"
+gym = "^0.13.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
