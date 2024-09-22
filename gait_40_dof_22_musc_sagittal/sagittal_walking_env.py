@@ -5,7 +5,7 @@ from myosuite.envs.myo.base_v0 import BaseV0
 import collections
 
 
-class Walking2D(WalkEnvV0):
+class WalkingSagittalLeft(WalkEnvV0):
     DEFAULT_OBS_KEYS = [
         'qpos_without_xy',
         'qvel',
@@ -48,7 +48,6 @@ class Walking2D(WalkEnvV0):
 
     def reset(self):
         self.steps = 0
-        # you can set initial states here
         reset_qpos = self.sim.model.key_qpos[0]
         reset_qvel = self.sim.model.key_qvel[0]
 
@@ -132,25 +131,23 @@ class Walking2D(WalkEnvV0):
             return 1
         return 0
 
-
-class Walking2D_WalkInit(Walking2D):
+class WalkingSagittalRight(WalkingSagittalLeft):
     def reset(self):
         self.steps = 0
-
-        reset_qpos = self.sim.model.key_qpos[5]
-        reset_qvel = self.sim.model.key_qvel[5]
+        
+        reset_qpos = self.sim.model.key_qpos[1]
+        reset_qvel = self.sim.model.key_qvel[1]
 
         self.robot.sync_sims(self.sim, self.sim_obsd)
         obs = BaseV0.reset(self, reset_qpos=reset_qpos, 
                            reset_qvel=reset_qvel)
         return obs
-        
 
-class Walking2D_WalkInitStochSide(Walking2D):
+class WalkingSagittalStochSide(WalkingSagittalLeft):
     def reset(self):
         self.steps = 0
         
-        side = np.random.choice([7, 8])
+        side = np.random.choice([0, 1])
         reset_qpos = self.sim.model.key_qpos[side]
         reset_qvel = self.sim.model.key_qvel[side]
 
@@ -160,11 +157,11 @@ class Walking2D_WalkInitStochSide(Walking2D):
         return obs
         
 
-class Walking2D_WalkInitStochSideNoise(Walking2D):
+class WalkingSagittalStochSideNoise(WalkingSagittalLeft):
     def reset(self):
         self.steps = 0
         
-        side = np.random.choice([7, 8])
+        side = np.random.choice([0, 1])
         reset_qpos = self.sim.model.key_qpos[side] 
         reset_qpos += np.random.normal(0, 0.02, 
                                        size=reset_qpos.shape)
