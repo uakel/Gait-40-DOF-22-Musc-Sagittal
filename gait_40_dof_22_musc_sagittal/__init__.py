@@ -1,5 +1,5 @@
 import os
-from gym import register
+from gymnasium import register
 
 curr_dir = os.path.dirname(os.path.abspath(__file__))
 

@@ -13,7 +13,7 @@
 		
 	-->
     <compiler angle="radian"/>
-    <option collision="predefined" timestep="0.001"/>
+    <option timestep="0.001"/>
     <size nconmax="400" njmax="1000" nkey="1" nuser_jnt="1"/>
     <visual>
         <scale framelength="0.5" framewidth="0.01"/>
@@ -55,7 +55,7 @@
         <mesh file="Converted/hat_skull.stl" name="torso_geom_3_hat_skull"/>
         <mesh file="Converted/hat_ribs.stl" name="torso_geom_4_hat_ribs"/>
 		
-        <texture name="texfloor" type="2d" height="0.01" width="1" file="Converted/floor0.png"/>
+        <texture name="texfloor" type="2d" width="1" file="Converted/floor0.png"/>
         <material name="matfloor" reflectance="0.01" texture="texfloor" texrepeat="1 1" texuniform="true"/>
 		
     </asset>
@@ -63,7 +63,7 @@
         <light dir="0 0 -1" directional="true" pos="0 0 0"/>
         <body name="ground" pos="40 0 0" quat="0.707035 0.707179 0 0">
             <inertial diaginertia="0.001 0.001 0.001" mass="0.001" pos="0 0 0" quat="0.707035 -0.707179 0 0"/>
-            <geom name="ground-plane" quat="0.707035 -0.707179 0 0" rgba="1 0.7 0.4 1" size="50 10 0.125" type="plane" material="matfloor"/>
+            <geom name="terrain" quat="0.707035 -0.707179 0 0" rgba="1 0.7 0.4 1" size="50 10 0.125" type="plane" material="matfloor"/>
         </body>
         <!-- <camera name="side_view" pos="-3 0 2.25" xyaxes="0 -1 0 1 0 2" mode="trackcom"/>
         <camera name="front_view" pos="0 -3 2.25" xyaxes="1 0 0 0 1 2" mode="trackcom"/>-->
@@ -285,25 +285,25 @@
         </body>
     </worldbody>
     <contact>
-        <pair geom1="ground-plane" geom2="pelvis_geom_1"/>
-        <pair geom1="ground-plane" geom2="pelvis_geom_2"/>
-        <pair geom1="ground-plane" geom2="pelvis_geom_3"/>
-        <pair geom1="ground-plane" geom2="femur_r_geom_1"/>
-        <pair geom1="ground-plane" geom2="tibia_r_geom_1"/>
-        <pair geom1="ground-plane" geom2="tibia_r_geom_2"/>
-        <pair geom1="ground-plane" geom2="talus_r_geom_1"/>
-        <pair geom1="ground-plane" geom2="calcn_r_geom_1"/>
-        <!--<pair geom1="ground-plane" geom2="toes_r_geom_1"/>-->
-        <pair geom1="ground-plane" geom2="femur_l_geom_1"/>
-        <pair geom1="ground-plane" geom2="tibia_l_geom_1"/>
-        <pair geom1="ground-plane" geom2="tibia_l_geom_2"/>
-        <pair geom1="ground-plane" geom2="talus_l_geom_1"/>
-        <pair geom1="ground-plane" geom2="calcn_l_geom_1"/>
-        <!--<pair geom1="ground-plane" geom2="toes_l_geom_1"/>-->
-        <pair geom1="ground-plane" geom2="torso_geom_1"/>
-        <pair geom1="ground-plane" geom2="torso_geom_2"/>
-        <pair geom1="ground-plane" geom2="torso_geom_3"/>
-        <pair geom1="ground-plane" geom2="torso_geom_4"/>
+        <pair geom1="terrain" geom2="pelvis_geom_1"/>
+        <pair geom1="terrain" geom2="pelvis_geom_2"/>
+        <pair geom1="terrain" geom2="pelvis_geom_3"/>
+        <pair geom1="terrain" geom2="femur_r_geom_1"/>
+        <pair geom1="terrain" geom2="tibia_r_geom_1"/>
+        <pair geom1="terrain" geom2="tibia_r_geom_2"/>
+        <pair geom1="terrain" geom2="talus_r_geom_1"/>
+        <pair geom1="terrain" geom2="calcn_r_geom_1"/>
+        <!--<pair geom1="terrain" geom2="toes_r_geom_1"/>-->
+        <pair geom1="terrain" geom2="femur_l_geom_1"/>
+        <pair geom1="terrain" geom2="tibia_l_geom_1"/>
+        <pair geom1="terrain" geom2="tibia_l_geom_2"/>
+        <pair geom1="terrain" geom2="talus_l_geom_1"/>
+        <pair geom1="terrain" geom2="calcn_l_geom_1"/>
+        <!--<pair geom1="terrain" geom2="toes_l_geom_1"/>-->
+        <pair geom1="terrain" geom2="torso_geom_1"/>
+        <pair geom1="terrain" geom2="torso_geom_2"/>
+        <pair geom1="terrain" geom2="torso_geom_3"/>
+        <pair geom1="terrain" geom2="torso_geom_4"/>
 
 		<!-- Self collision -->
 		<pair geom1="femur_r_geom_1" geom2="femur_l_geom_1"/>

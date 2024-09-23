@@ -46,7 +46,7 @@ class WalkingSagittalLeft(WalkEnvV0):
 
         self._setup(**kwargs)
 
-    def reset(self):
+    def reset(self, *args, **kwargs):
         self.steps = 0
         reset_qpos = self.sim.model.key_qpos[0]
         reset_qvel = self.sim.model.key_qvel[0]
@@ -132,7 +132,7 @@ class WalkingSagittalLeft(WalkEnvV0):
         return 0
 
 class WalkingSagittalRight(WalkingSagittalLeft):
-    def reset(self):
+    def reset(self, *args, **kwargs):
         self.steps = 0
         
         reset_qpos = self.sim.model.key_qpos[1]
@@ -144,7 +144,7 @@ class WalkingSagittalRight(WalkingSagittalLeft):
         return obs
 
 class WalkingSagittalStochSide(WalkingSagittalLeft):
-    def reset(self):
+    def reset(self, *args, **kwargs):
         self.steps = 0
         
         side = np.random.choice([0, 1])
@@ -158,7 +158,7 @@ class WalkingSagittalStochSide(WalkingSagittalLeft):
         
 
 class WalkingSagittalStochSideNoise(WalkingSagittalLeft):
-    def reset(self):
+    def reset(self, *args, **kwargs):
         self.steps = 0
         
         side = np.random.choice([0, 1])
