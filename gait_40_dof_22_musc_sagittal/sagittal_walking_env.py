@@ -81,7 +81,7 @@ class WalkingSagittalLeft(WalkEnvV0):
          return obs_dict
 
     def get_reward_dict(self, obs_dict):
-        vel_loss = self._get_vel_loss()
+        vel_cost = self._get_vel_cost()
         vel_reward = self._get_vel_reward()
         cyclic_hip = self._get_cyclic_rew()
         ref_rot = self._get_ref_rotation_rew()
@@ -97,7 +97,7 @@ class WalkingSagittalLeft(WalkEnvV0):
 
         rwd_dict = collections.OrderedDict((
             # Optional Keys
-            ('vel_loss', vel_loss),
+            ('vel_cost', vel_cost),
             ('vel_reward', vel_reward),
             ('cyclic_hip', cyclic_hip),
             ('ref_rot', ref_rot),
@@ -114,13 +114,14 @@ class WalkingSagittalLeft(WalkEnvV0):
                                    axis=0)
         return rwd_dict
         
-    def _get_vel_loss(self):
+    def _get_vel_cost(self):
         """
         Absolute difference sum as loss 
         """
         vel = self._get_com_velocity()
         return (np.abs(self.target_y_vel - vel[1]) + 
                 np.abs(self.target_x_vel - vel[0]))
+
 
     def _get_done(self):
         if self.first_done_call:
