@@ -1,4 +1,4 @@
-import gym
+import gymnasium as gym
 import numpy as np
 from myosuite.envs.myo.myobase.walk_v0 import WalkEnvV0
 from myosuite.envs.myo.base_v0 import BaseV0

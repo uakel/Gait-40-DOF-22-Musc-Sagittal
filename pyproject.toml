@@ -1,18 +1,10 @@
-[tool.poetry]
+[project]
 name = "gait-40-dof-22-musc-sagittal"
-version = "0.1.4"
-description = "OpenSim model in MuJoCo environement, addapted to only move in sagittal plane"
-authors = ["Leonard Franz <leonard.franz@student.uni-tuebingen.de>"]
+version = "0.1.0"
+description = "A 2D constrained version of the 40 dof 22 muscle humanoid from MyoSuite"
 readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "myosuite"
+]
 
-[tool.poetry.dependencies]
-python = ">=3.10,<=3.11.5"
-MyoSuite = "^2.5.0"
-
-[tool.poetry.group.dev.dependencies]
-numpy = "^2.1.1"
-gym = "^0.13.0"
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
