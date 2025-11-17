@@ -1,4 +1,4 @@
 # Gait-40-DOF-22-Musc-Sagittal
-OpenSim model in MuJoCo environement, addapted to only move in sagittal plane
+A 2D constrained version of the 40 dof 22 muscle humanoid from MyoSuite
 
 ![Sagittal locomotion environment](environment.png)
